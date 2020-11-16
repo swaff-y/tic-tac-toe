@@ -40,17 +40,32 @@ const gameLogic = {
   playTurn : function(){
     let num = 0;
 
-    //do play turn next where if a square is chosen it cannot be chosen again
+
 
     if(this.turn === 1){
+      num = prompt("player X turn: ");
+      for(let i = 0;i <= this.pickArray.length-1;i++){
+        if(this.pickArray[i] === parseInt(num))
+        return false;
+      }
       this.turn = 0;
       player = 0;
-      num = prompt("player X turn: ");
     }else{
+      num = prompt("player O turn: ");
+      for(let i = 0;i <= this.pickArray.length-1;i++){
+        if(this.pickArray[i] === parseInt(num))
+        return false;
+      }
       this.turn = 1;
       player = 1;
-      num = prompt("player O turn: ");
     }
+
+    for(let i = 0;i <= this.pickArray.length-1;i++){
+      if(this.pickArray[i] === parseInt(num))
+      return false;
+    }
+
+    this.pickArray.push(parseInt(num));
 
     if(player == 0){
       if(num == 1){
