@@ -10,53 +10,45 @@ const gameLogic = {
     [0,0,0],
   ],
   pickArray:[],
-
   turn: 1,
 
   winTest : function(){
     let add = 0;
     let check = 0;
     for(let i = 0;i < 8;i++){
+      console.log('iteration',i);
       add = 0;
       check = 0;
       for(let j = 0;j < 3;j++){
-        if(this.combos[i][j] !== 0){
-          add = add + this.combos[i][j];
-          check++;
-          if(check === 3){
-            check = 0;
-            if(add === 3){
-              return "X";
-            }else if(add === 6){
-              return "O";
-            }
-            else{
-              return "Draw";
+        //if(add === 3){
+          if(this.combos[i][j] !== 0){
+            add = add + this.combos[i][j];
+            check++;
+            if(check === 3){
+              check = 0;
+              if(add === 3){
+                return "X";
+              }else if(add === 6){
+                return "O";
+              }
             }
           }
-        }
+        //}
       }
     }
+    console.log("pop out");
    return true;
   },
   gameState : function(){
-    if(this.winTest() !== true){
-      if(this.winTest() === "X"){
-        return "X";
-      }else if(this.winTest() === "O"){
-        return "O";
-      }
-      else{
-        if(this.pickArray.length === 9)
-        {
-          return "draw";
-        }
-      }
-    }else{
-      return false;
+    if(this.pickArray.length === 9){
+      return "draw";
+    }
+    if(this.winTest() === "X"){
+      return "X";
+    }else if(this.winTest() === "O"){
+      return "O";
     }
   },
-
   playTurn : function(num){
     console.log("Turn:",this.turn);
     if(this.turn == 1){
@@ -349,7 +341,6 @@ const gameLogic = {
       }
     }
   },
-
   fillArray : function(x,y,player){
     for(let i = 0; i < 8; i++){
       for(let j = 0; j < 3; j++){
