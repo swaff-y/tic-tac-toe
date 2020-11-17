@@ -1,6 +1,13 @@
 table{
   border-collapse: collapse;
 }
+img{
+  border-collapse: collapse;
+  margin:0;
+  width: 160px;
+  height: 155px;
+}
+
 .border{
   border: 1px solid black;
   width:100px;
@@ -15,4 +22,15 @@ table{
 }
 .grey{
   background-color: lightgrey;
+}
+.white{
+  background-color: white;
+  width: 160px;
+  height: 155px;
+}
+.hide{
+  display:none;
+}
+.xo{
+  display:none;
 }

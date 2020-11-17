@@ -60,11 +60,9 @@ const gameLogic = {
     }
   },
 
-  playTurn : function(){
-    let num = 0;
-
+  playTurn : function(num){
     if(this.turn === 1){
-      num = prompt("player X turn: ");
+//      num = prompt("player X turn: ");
       for(let i = 0;i <= this.pickArray.length-1;i++){
         if(this.pickArray[i] === parseInt(num))
         return true;
@@ -72,7 +70,7 @@ const gameLogic = {
       this.turn = 0;
       player = 0;
     }else{
-      num = prompt("player O turn: ");
+//      num = prompt("player O turn: ");
       for(let i = 0;i <= this.pickArray.length-1;i++){
         if(this.pickArray[i] === parseInt(num))
         return true;
