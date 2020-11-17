@@ -20,23 +20,20 @@ const gameLogic = {
       add = 0;
       check = 0;
       for(let j = 0;j < 3;j++){
-        //if(add === 3){
-          if(this.combos[i][j] !== 0){
-            add = add + this.combos[i][j];
-            check++;
-            if(check === 3){
-              check = 0;
-              if(add === 3){
-                return "X";
-              }else if(add === 6){
-                return "O";
-              }
+        if(this.combos[i][j] !== 0){
+          add = add + this.combos[i][j];
+          check++;
+          if(check === 3){
+            check = 0;
+            if(add === 3){
+              return "X";
+            }else if(add === 6){
+              return "O";
             }
           }
-        //}
+        }
       }
     }
-    console.log("pop out");
    return true;
   },
   gameState : function(){
@@ -52,7 +49,6 @@ const gameLogic = {
   playTurn : function(num){
     console.log("Turn:",this.turn);
     if(this.turn == 1){
-//      num = prompt("player X turn: ");
       for(let i = 0;i <= this.pickArray.length-1;i++){
         if(this.pickArray[i] === parseInt(num)){
           return "again";
@@ -61,7 +57,6 @@ const gameLogic = {
       this.turn = 0;
       player = 0;
     }else{
-//      num = prompt("player O turn: ");
       for(let i = 0;i <= this.pickArray.length-1;i++){
         if(this.pickArray[i] === num){
           return "again";
@@ -357,14 +352,3 @@ const gameLogic = {
     }
   },
 };
-
-
-//working code
-    //fill loop
-// for(let i = 1;i <= 3;i++){
-//   if(x == i){
-//     for(let j = 4; j <= 6;j++){
-//         this.combos =
-//     }
-//   }
-// }
