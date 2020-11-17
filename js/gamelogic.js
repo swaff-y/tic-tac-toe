@@ -42,17 +42,14 @@ const gameLogic = {
   gameState : function(){
     if(this.winTest() !== true){
       if(this.winTest() === "X"){
-        console.log("Player X wins");
-        return true;
+        return "X";
       }else if(this.winTest() === "O"){
-        console.log("player O wins");
-        return true;
+        return "O";
       }
       else{
         if(this.pickArray.length === 9)
         {
-          console.log('Draw');
-          return true;
+          return "draw";
         }
       }
     }else{
@@ -61,43 +58,56 @@ const gameLogic = {
   },
 
   playTurn : function(num){
-    if(this.turn === 1){
+    console.log("Turn:",this.turn);
+    if(this.turn == 1){
 //      num = prompt("player X turn: ");
       for(let i = 0;i <= this.pickArray.length-1;i++){
-        if(this.pickArray[i] === parseInt(num))
-        return true;
+        if(this.pickArray[i] === parseInt(num)){
+          return "again";
+        }
       }
       this.turn = 0;
       player = 0;
     }else{
 //      num = prompt("player O turn: ");
       for(let i = 0;i <= this.pickArray.length-1;i++){
-        if(this.pickArray[i] === parseInt(num))
-        return true;
+        if(this.pickArray[i] === num){
+          return "again";
+        }
       }
       this.turn = 1;
       player = 1;
     }
 
-    this.pickArray.push(parseInt(num));
+    this.pickArray.push(num);
 
     if(player == 0){
       if(num == 1){
         this.fillArray(0,0,1);
         this.fillArray(3,0,1);
         this.fillArray(7,0,1);
-        if(this.gameState() === true){
-          return false;
-        }else{
+        if(this.gameState() === "X"){
+          return "X";
+        }else if(this.gameState() === "O"){
+          return "O";
+        }else if(this.gameState() === "draw"){
+          return "draw";
+        }
+        else{
           return true;
         }
       }
       if(num == 2){
         this.fillArray(1,0,1);
         this.fillArray(3,1,1);
-        if(this.gameState() === true){
-          return false;
-        }else{
+        if(this.gameState() === "X"){
+          return "X";
+        }else if(this.gameState() === "O"){
+          return "O";
+        }else if(this.gameState() === "draw"){
+          return "draw";
+        }
+        else{
           return true;
         }
       }
@@ -105,18 +115,28 @@ const gameLogic = {
         this.fillArray(2,0,1);
         this.fillArray(3,2,1);
         this.fillArray(6,2,1);
-        if(this.gameState() === true){
-          return false;
-        }else{
+        if(this.gameState() === "X"){
+          return "X";
+        }else if(this.gameState() === "O"){
+          return "O";
+        }else if(this.gameState() === "draw"){
+          return "draw";
+        }
+        else{
           return true;
         }
       }
       if(num == 4){
         this.fillArray(0,1,1);
         this.fillArray(4,0,1);
-        if(this.gameState() === true){
-          return false;
-        }else{
+        if(this.gameState() === "X"){
+          return "X";
+        }else if(this.gameState() === "O"){
+          return "O";
+        }else if(this.gameState() === "draw"){
+          return "draw";
+        }
+        else{
           return true;
         }
       }
@@ -125,18 +145,28 @@ const gameLogic = {
         this.fillArray(4,1,1);
         this.fillArray(6,1,1);
         this.fillArray(7,1,1);
-        if(this.gameState() === true){
-          return false;
-        }else{
+        if(this.gameState() === "X"){
+          return "X";
+        }else if(this.gameState() === "O"){
+          return "O";
+        }else if(this.gameState() === "draw"){
+          return "draw";
+        }
+        else{
           return true;
         }
       }
       if(num == 6){
         this.fillArray(2,1,1);
         this.fillArray(4,2,1);
-        if(this.gameState() === true){
-          return false;
-        }else{
+        if(this.gameState() === "X"){
+          return "X";
+        }else if(this.gameState() === "O"){
+          return "O";
+        }else if(this.gameState() === "draw"){
+          return "draw";
+        }
+        else{
           return true;
         }
       }
@@ -144,18 +174,28 @@ const gameLogic = {
         this.fillArray(0,2,1);
         this.fillArray(5,0,1);
         this.fillArray(6,0,1);
-        if(this.gameState() === true){
-          return false;
-        }else{
+        if(this.gameState() === "X"){
+          return "X";
+        }else if(this.gameState() === "O"){
+          return "O";
+        }else if(this.gameState() === "draw"){
+          return "draw";
+        }
+        else{
           return true;
         }
       }
       if(num == 8){
         this.fillArray(1,2,1);
         this.fillArray(5,1,1);
-        if(this.gameState() === true){
-          return false;
-        }else{
+        if(this.gameState() === "X"){
+          return "X";
+        }else if(this.gameState() === "O"){
+          return "O";
+        }else if(this.gameState() === "draw"){
+          return "draw";
+        }
+        else{
           return true;
         }
       }
@@ -163,9 +203,14 @@ const gameLogic = {
         this.fillArray(2,2,1);
         this.fillArray(5,2,1);
         this.fillArray(7,2,1);
-        if(this.gameState() === true){
-          return false;
-        }else{
+        if(this.gameState() === "X"){
+          return "X";
+        }else if(this.gameState() === "O"){
+          return "O";
+        }else if(this.gameState() === "draw"){
+          return "draw";
+        }
+        else{
           return true;
         }
       }
@@ -174,18 +219,28 @@ const gameLogic = {
         this.fillArray(0,0,2);
         this.fillArray(3,0,2);
         this.fillArray(7,0,2);
-        if(this.gameState() === true){
-          return false;
-        }else{
+        if(this.gameState() === "X"){
+          return "X";
+        }else if(this.gameState() === "O"){
+          return "O";
+        }else if(this.gameState() === "draw"){
+          return "draw";
+        }
+        else{
           return true;
         }
       }
       if(num == 2){
         this.fillArray(1,0,2);
         this.fillArray(3,1,2);
-        if(this.gameState() === true){
-          return false;
-        }else{
+        if(this.gameState() === "X"){
+          return "X";
+        }else if(this.gameState() === "O"){
+          return "O";
+        }else if(this.gameState() === "draw"){
+          return "draw";
+        }
+        else{
           return true;
         }
       }
@@ -193,18 +248,28 @@ const gameLogic = {
         this.fillArray(2,0,2);
         this.fillArray(3,2,2);
         this.fillArray(6,2,2);
-        if(this.gameState() === true){
-          return false;
-        }else{
+        if(this.gameState() === "X"){
+          return "X";
+        }else if(this.gameState() === "O"){
+          return "O";
+        }else if(this.gameState() === "draw"){
+          return "draw";
+        }
+        else{
           return true;
         }
       }
       if(num == 4){
         this.fillArray(0,1,2);
         this.fillArray(4,0,2);
-        if(this.gameState() === true){
-          return false;
-        }else{
+        if(this.gameState() === "X"){
+          return "X";
+        }else if(this.gameState() === "O"){
+          return "O";
+        }else if(this.gameState() === "draw"){
+          return "draw";
+        }
+        else{
           return true;
         }
       }
@@ -213,18 +278,28 @@ const gameLogic = {
         this.fillArray(4,1,2);
         this.fillArray(6,1,2);
         this.fillArray(7,1,2);
-        if(this.gameState() === true){
-          return false;
-        }else{
+        if(this.gameState() === "X"){
+          return "X";
+        }else if(this.gameState() === "O"){
+          return "O";
+        }else if(this.gameState() === "draw"){
+          return "draw";
+        }
+        else{
           return true;
         }
       }
       if(num == 6){
         this.fillArray(2,1,2);
         this.fillArray(4,2,2);
-        if(this.gameState() === true){
-          return false;
-        }else{
+        if(this.gameState() === "X"){
+          return "X";
+        }else if(this.gameState() === "O"){
+          return "O";
+        }else if(this.gameState() === "draw"){
+          return "draw";
+        }
+        else{
           return true;
         }
       }
@@ -232,18 +307,28 @@ const gameLogic = {
         this.fillArray(0,2,2);
         this.fillArray(5,0,2);
         this.fillArray(6,0,2);
-        if(this.gameState() === true){
-          return false;
-        }else{
+        if(this.gameState() === "X"){
+          return "X";
+        }else if(this.gameState() === "O"){
+          return "O";
+        }else if(this.gameState() === "draw"){
+          return "draw";
+        }
+        else{
           return true;
         }
       }
       if(num == 8){
         this.fillArray(1,2,2);
         this.fillArray(5,1,2);
-        if(this.gameState() === true){
-          return false;
-        }else{
+        if(this.gameState() === "X"){
+          return "X";
+        }else if(this.gameState() === "O"){
+          return "O";
+        }else if(this.gameState() === "draw"){
+          return "draw";
+        }
+        else{
           return true;
         }
       }
@@ -251,9 +336,14 @@ const gameLogic = {
         this.fillArray(2,2,2);
         this.fillArray(5,2,2);
         this.fillArray(7,2,2);
-        if(this.gameState() === true){
-          return false;
-        }else{
+        if(this.gameState() === "X"){
+          return "X";
+        }else if(this.gameState() === "O"){
+          return "O";
+        }else if(this.gameState() === "draw"){
+          return "draw";
+        }
+        else{
           return true;
         }
       }
