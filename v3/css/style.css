@@ -34,7 +34,7 @@ h1,h2{
   height: 155px;
 }
 .hide{
-  /* display:none; */
+  display:none;
 }
 .xo{
   display:none;
