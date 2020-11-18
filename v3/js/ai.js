@@ -10,13 +10,17 @@ const aiPlayer = {
     }else if(gameLogic.combos[0][0] === 1 && gameLogic.combos[0][2] === 1){
       return "S2"
     }else if(gameLogic.combos[0][0] === 1 && gameLogic.combos[2][2] === 0){
-      return "C4";
+      if(gameLogic.combos[2][0] !== 1)
+      {return "C4";}
     }else if(gameLogic.combos[2][0] === 1 && gameLogic.combos[0][2] === 0){
-      return "C3";
+      if(gameLogic.combos[2][2] !== 1)
+      {return "C3";}
     }else if(gameLogic.combos[0][2] === 1 && gameLogic.combos[2][0] === 0){
-      return "C2";
+      if(gameLogic.combos[0][1] !== 1)
+      {return "C2";}
     }else if(gameLogic.combos[2][2] === 1 && gameLogic.combos[0][0] === 0){
-      return "C1";
+      if(gameLogic.combos[2][0] !== 1)
+      {return "C1";}
     }else{
       return false;
     }

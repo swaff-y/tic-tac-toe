@@ -2,10 +2,12 @@ table{
   border-collapse: collapse;
 }
 img{
+  position: relative;
   border-collapse: collapse;
   margin:0;
   width: 160px;
   height: 155px;
+  z-index: 1;
 }
 
 h1,h2{
@@ -45,4 +47,12 @@ h1,h2{
 
 .border.red{
   display:none;
+}
+.tease{
+  position:relative;
+  z-index: 2;
+  text-align: center;
+  top: 75px;
+  font-size: 14pt;
+  font-weight: bold;
 }

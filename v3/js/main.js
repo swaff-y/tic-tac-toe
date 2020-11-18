@@ -1,4 +1,5 @@
 console.log("Test");
+
 const yis = function(){
   $('#inst').html('Player X turn');
   counterSet();
@@ -18,12 +19,15 @@ const $restartGame = function(win){
   if(win === "X"){
     $('#inst').html('Player X wins');
     gameLogic.gamecounter[0]++;
+    randomTaunt();
   }else if(win === "O"){
     $('#inst').html('Player O wins');
     gameLogic.gamecounter[1]++;
+    randomTaunt();
   }else if(win === "draw"){
     $('#inst').html('Draw');
     gameLogic.gamecounter[2]++;
+    randomTaunt();
   }
   setTimeout(yis,1500);
 }
@@ -40,17 +44,39 @@ const $moveChange = function(nextTest){
     $restartGame('draw');
   }
 };
+
+const randomTaunt = function(){
+  const taunts = [
+    'Really?',
+    'Are you sure?',
+    'I wouldn\'t!',
+    'For Real?',
+    'Surly Not',
+    'Final Answer?',
+    'This One?',
+    'Try me',
+    'Your Loss',
+    'Mmmmm'
+  ];
+
+  for(let i = 1;i <= 9;i++){
+    const random = Math.floor(Math.random()*10);
+    $('#t' + i).html(taunts[random]);
+    $('#t' + i).hide();
+  }
+}
 $(document).ready(function(){
+  randomTaunt();
+
   $('#inst').html('Player X turn');
   let clicks = 0;
 
   $('#recount').on('click',function(){
     location.reload();
   });
-
-
   const $write = function(num){
       $('#wh' + num).on('click',function(){
+        $('#t' + num).html('');
         console.log('clicked-'+clicks);
         let turn = gameLogic.turn;
         let result = gameLogic.playTurn(num);
@@ -65,30 +91,39 @@ $(document).ready(function(){
               nextTest = 'draw';
             }
             if(play === "C"){
+              $('#t5').html('');
               $('#o5').show();
               $moveChange(nextTest);
             }else if(play === "C1"){
+              $('#t1').html('');
               $('#o1').show();
               $moveChange(nextTest);
             }else if(play === "C2"){
+              $('#t3').html('');
               $('#o3').show();
               $moveChange(nextTest);
             }else if(play === "C3"){
+              $('#t7').html('');
               $('#o7').show();
               $moveChange(nextTest);
             }else if(play === "C4"){
+              $('#t9').html('');
               $('#o9').show();
               $moveChange(nextTest);
             }else if(play === "S1"){
+              $('#t2').html('');
               $('#o2').show();
               $moveChange(nextTest);
             }else if(play === "S2"){
+              $('#t4').html('');
               $('#o4').show();
               $moveChange(nextTest);
             }else if(play === "S3"){
+              $('#t6').html('');
               $('#o6').show();
               $moveChange(nextTest);
             }else if(play === "S4"){
+              $('#t8').html('');
               $('#o8').show();
               $moveChange(nextTest);
             }else if(nextTest === 'draw'){
@@ -101,5 +136,12 @@ $(document).ready(function(){
   };
   for(let i = 1; i <= 9;i++){
     $write(i);
+    $('#wh' + i).hover(function(){
+      $('#t' + i).show();
+    },function(){
+      $('#t' + i).hide();
+    })
   };
+
+
 });
