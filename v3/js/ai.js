@@ -1,5 +1,18 @@
 console.log('ai working');
 const aiPlayer = {
+  checkSpec : function(){
+    if(gameLogic.combos[0][0] === 1 && gameLogic.combos[2][2] === 0){
+      return "C4";
+    }else if(gameLogic.combos[2][0] === 1 && gameLogic.combos[0][2] === 0){
+          return "C3";
+    }else if(gameLogic.combos[0][2] === 1 && gameLogic.combos[2][0] === 0){
+          return "C2";
+    }else if(gameLogic.combos[2][2] === 1 && gameLogic.combos[0][0] === 0){
+          return "C1";
+    }else{
+      return false;
+    }
+  },
   //check win
   checkWin : function(){
       if(gameLogic.combos[0][0] === 2 && gameLogic.combos[0][1] === 2 && gameLogic.combos[0][2] === 0){
@@ -108,7 +121,6 @@ const aiPlayer = {
       return false;
     }
   },
-  //check special 1
 
   //check center
   checkCenter : function(){
@@ -157,7 +169,23 @@ const aiPlayer = {
   },
   playCascade : function(){
 
-    if(this.checkWin() === "C1"){
+    if(this.checkSpec() === "C4"){
+      console.log('c4');
+      gameLogic.playTurn(9);
+      return "C4";
+    }else if(this.checkSpec() === "C3"){
+      console.log('c3');
+      gameLogic.playTurn(7);
+      return "C3";
+    }else if(this.checkSpec() === "C1"){
+      console.log('c1');
+      gameLogic.playTurn(1);
+      return "C1";
+    }else if(this.checkSpec() === "C2"){
+      console.log('c2');
+      gameLogic.playTurn(3);
+      return "C2";
+    }else if(this.checkWin() === "C1"){
       console.log('c1');
       gameLogic.playTurn(1);
       return "C1";
