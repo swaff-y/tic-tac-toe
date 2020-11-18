@@ -340,18 +340,27 @@ const gameLogic = {
     }
   },
   fillArray : function(x,y,player){
-    for(let i = 0; i < 8; i++){
-      for(let j = 0; j < 3; j++){
-        if(x == i && y == j){
-          if(player == 1){
-            this.combos[i][j] = 1;
-            return false;
-          }else{
-            this.combos[i][j] = 2;
-            return false;
-          }
-        }
-      }
+    if(player == 1){
+      this.combos[x][y] = 1;
+      return false;
+    }else{
+      this.combos[x][y] = 2;
+      return false;
     }
   },
+  reset : function(){
+    this.combos = [
+      [0,0,0],
+      [0,0,0],
+      [0,0,0],
+      [0,0,0],
+      [0,0,0],
+      [0,0,0],
+      [0,0,0],
+      [0,0,0],
+    ];
+    this.pickArray = [];
+    this.turn = 1;
+  },
+  gamecounter:[0,0,0],
 };
