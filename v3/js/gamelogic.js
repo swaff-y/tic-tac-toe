@@ -51,17 +51,20 @@ const gameLogic = {
     if(this.turn == 1){
       for(let i = 0;i <= this.pickArray.length-1;i++){
         if(this.pickArray[i] === parseInt(num)){
+          // console.log("this one");
           return "again";
         }
       }
       this.turn = 0;
       player = 0;
-    }else{
-      for(let i = 0;i <= this.pickArray.length-1;i++){
-        if(this.pickArray[i] === num){
-          return "again";
-        }
-      }
+    }
+    else{
+      // for(let i = 0;i <= this.pickArray.length-1;i++){
+      //   if(this.pickArray[i] === num){
+      //     console.log("this one");
+      //     return "again";
+      //   }
+      // }
       this.turn = 1;
       player = 1;
     }

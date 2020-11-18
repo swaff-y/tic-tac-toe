@@ -4,9 +4,11 @@ console.log("Test");
 $(document).ready(function(){
   $('#inst').html('Player X turn');
 
+  let clicks = 0;
+
   const $write = function(num){
       $('#wh' + num).on('click',function(){
-        console.log('clicked');
+        console.log('clicked-'+clicks);
         let turn = gameLogic.turn;
         let result = gameLogic.playTurn(num);
         if(turn === 1){
@@ -14,14 +16,18 @@ $(document).ready(function(){
             $('#x' + num).show();
             $('#o' + num).hide();
             const play = aiPlayer.playCascade();
-            const nextTest = gameLogic.winTest();
+            let nextTest = gameLogic.winTest();
+            if(gameLogic.pickArray.length === 9){
+            //  console.log("write me");
+              nextTest = 'draw';
+            }
             if(play === "C"){
               $('#o5').show();
               if(nextTest === "X"){
                 $('#inst').html('Player X wins');
               }else if(nextTest === "O"){
                 $('#inst').html('Player O wins');
-              }else if(result === "draw"){
+              }else if(nextTest === "draw"){
                 $('#inst').html('Draw');
               }else{
                 $('#inst').html('Player X turn');
@@ -32,7 +38,7 @@ $(document).ready(function(){
                 $('#inst').html('Player X wins');
               }else if(nextTest === "O"){
                 $('#inst').html('Player O wins');
-              }else if(result === "draw"){
+              }else if(nextTest === "draw"){
                 $('#inst').html('Draw');
               }else{
                 $('#inst').html('Player X turn');
@@ -43,7 +49,7 @@ $(document).ready(function(){
                 $('#inst').html('Player X wins');
               }else if(nextTest === "O"){
                 $('#inst').html('Player O wins');
-              }else if(result === "draw"){
+              }else if(nextTest === "draw"){
                 $('#inst').html('Draw');
               }else{
                 $('#inst').html('Player X turn');
@@ -54,7 +60,7 @@ $(document).ready(function(){
                 $('#inst').html('Player X wins');
               }else if(nextTest === "O"){
                 $('#inst').html('Player O wins');
-              }else if(result === "draw"){
+              }else if(nextTest === "draw"){
                 $('#inst').html('Draw');
               }else{
                 $('#inst').html('Player X turn');
@@ -65,7 +71,7 @@ $(document).ready(function(){
                 $('#inst').html('Player X wins');
               }else if(nextTest === "O"){
                 $('#inst').html('Player O wins');
-              }else if(result === "draw"){
+              }else if(nextTest === "draw"){
                 $('#inst').html('Draw');
               }else{
                 $('#inst').html('Player X turn');
@@ -76,7 +82,7 @@ $(document).ready(function(){
                 $('#inst').html('Player X wins');
               }else if(nextTest === "O"){
                 $('#inst').html('Player O wins');
-              }else if(result === "draw"){
+              }else if(nextTest === "draw"){
                 $('#inst').html('Draw');
               }else{
                 $('#inst').html('Player X turn');
@@ -87,7 +93,7 @@ $(document).ready(function(){
                 $('#inst').html('Player X wins');
               }else if(nextTest === "O"){
                 $('#inst').html('Player O wins');
-              }else if(result === "draw"){
+              }else if(nextTest === "draw"){
                 $('#inst').html('Draw');
               }else{
                 $('#inst').html('Player X turn');
@@ -98,7 +104,7 @@ $(document).ready(function(){
                 $('#inst').html('Player X wins');
               }else if(nextTest === "O"){
                 $('#inst').html('Player O wins');
-              }else if(result === "draw"){
+              }else if(nextTest === "draw"){
                 $('#inst').html('Draw');
               }else{
                 $('#inst').html('Player X turn');
@@ -109,11 +115,13 @@ $(document).ready(function(){
                 $('#inst').html('Player X wins');
               }else if(nextTest === "O"){
                 $('#inst').html('Player O wins');
-              }else if(result === "draw"){
+              }else if(nextTest === "draw"){
                 $('#inst').html('Draw');
               }else{
                 $('#inst').html('Player X turn');
               }
+            }else if(nextTest === 'draw'){
+              $('#inst').html('Draw');
             }
           }
         }

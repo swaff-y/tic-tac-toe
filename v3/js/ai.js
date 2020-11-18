@@ -2,7 +2,7 @@ console.log('ai working');
 const aiPlayer = {
   //check win
   checkwin : function(){
-    
+
   },
   //check block
   checkblock : function(){},
@@ -74,19 +74,19 @@ const aiPlayer = {
       return "C4";
     }else if(this.checkSide() === "S1"){
       console.log('s1');
-      gameLogic.playTurn(1);
+      gameLogic.playTurn(2);
       return "S1";
     }else if(this.checkSide() === "S2"){
       console.log('s2');
-      gameLogic.playTurn(3);
+      gameLogic.playTurn(4);
       return "S2";
     }else if(this.checkSide() === "S3"){
       console.log('s3');
-      gameLogic.playTurn(7);
+      gameLogic.playTurn(6);
       return "S3";
     }else if(this.checkSide() === "S4"){
       console.log('s4');
-      gameLogic.playTurn(9);
+      gameLogic.playTurn(8);
       return "S4";
     }
 
