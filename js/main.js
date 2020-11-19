@@ -1,15 +1,13 @@
-console.log("Test");
-
-const yis = function(){
+const yis = function(){    //
   $('#inst').html('Player X turn');
   counterSet();
 };
-const counterSet = function(){
+const counterSet = function(){ //sets the game counter
   $('#X').html(gameLogic.gamecounter[0]);
   $('#O').html(gameLogic.gamecounter[1]);
   $('#draw').html(gameLogic.gamecounter[2]);
 }
-const $restartGame = function(win){
+const $restartGame = function(win){ //hides all imgs to start next game
   for(let i = 1;i <= 9;i++){
     $('#x' + i).hide();
     $('#o' + i).hide();
@@ -31,8 +29,7 @@ const $restartGame = function(win){
   }
   setTimeout(yis,1500);
 }
-
-const $moveChange = function(nextTest){
+const $moveChange = function(nextTest){ //tests the player X || O
   if(nextTest === "X"){
     $('#inst').html('Player X turn');
     $restartGame('X');
@@ -44,8 +41,7 @@ const $moveChange = function(nextTest){
     $restartGame('draw');
   }
 };
-
-const randomTaunt = function(){
+const randomTaunt = function(){ //set the random taunts
   const taunts = [
     'Really?',
     'Are you sure?',
@@ -66,7 +62,7 @@ const randomTaunt = function(){
   }
 }
 $(document).ready(function(){
-  randomTaunt();
+  randomTaunt(); //calls the taunt function
 
   $('#inst').html('Player X turn');
   let clicks = 0;

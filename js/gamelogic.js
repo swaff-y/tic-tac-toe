@@ -1,7 +1,7 @@
-const gameLogic = {
+const gameLogic = { //this object contains all the game logic
   combos : [
-    [0,0,0],
-    [0,0,0],
+    [0,0,0],      //this array contains all the selections and
+    [0,0,0],      //is used for the win calculations at the same time
     [0,0,0],
     [0,0,0],
     [0,0,0],
@@ -9,10 +9,10 @@ const gameLogic = {
     [0,0,0],
     [0,0,0],
   ],
-  pickArray:[],
-  turn: 1,
+  pickArray:[],     //this array is for the cells that have been picked
+  turn: 1,        //this is counter to tell the turn
 
-  winTest : function(){
+  winTest : function(){    //tests for a win state 3 === X win && 6 === O win
     let add = 0;
     let check = 0;
     for(let i = 0;i < 8;i++){
@@ -36,7 +36,7 @@ const gameLogic = {
     }
    return true;
   },
-  gameState : function(){
+  gameState : function(){   //checks the state of the game using play length and win test
     if(this.pickArray.length === 9){
       return "draw";
     }
@@ -46,12 +46,11 @@ const gameLogic = {
       return "O";
     }
   },
-  playTurn : function(num){
-//    console.log("Turn:",this.turn);
+  playTurn : function(num){  //checks the players turn, fills in picks and setsup next turn
+
     if(this.turn == 1){
       for(let i = 0;i <= this.pickArray.length-1;i++){
         if(this.pickArray[i] === parseInt(num)){
-          // console.log("this one");
           return "again";
         }
       }
@@ -59,12 +58,6 @@ const gameLogic = {
       player = 0;
     }
     else{
-      // for(let i = 0;i <= this.pickArray.length-1;i++){
-      //   if(this.pickArray[i] === num){
-      //     console.log("this one");
-      //     return "again";
-      //   }
-      // }
       this.turn = 1;
       player = 1;
     }
@@ -339,8 +332,8 @@ const gameLogic = {
       }
     }
   },
-  fillArray : function(x,y,player){
-    if(player == 1){
+  fillArray : function(x,y,player){ //chooses the right num to fill in the game array
+    if(player == 1){                  //based on player
       this.combos[x][y] = 1;
       return false;
     }else{
@@ -348,7 +341,7 @@ const gameLogic = {
       return false;
     }
   },
-  reset : function(){
+  reset : function(){   //Restes the game for next round
     this.combos = [
       [0,0,0],
       [0,0,0],
@@ -362,5 +355,5 @@ const gameLogic = {
     this.pickArray = [];
     this.turn = 1;
   },
-  gamecounter:[0,0,0],
+  gamecounter:[0,0,0],  //counts the number of X wins O wins and draws
 };

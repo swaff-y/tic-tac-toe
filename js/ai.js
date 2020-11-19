@@ -1,6 +1,6 @@
-console.log('ai working');
+
 const aiPlayer = {
-  checkSpec : function(){
+  checkSpec : function(){     //checks for startin spec cases
     if(gameLogic.pickArray.length <= 2){
       if(gameLogic.combos[0][0] === 1 && gameLogic.combos[2][0] === 1){
         return "S1";
@@ -137,7 +137,6 @@ const aiPlayer = {
       return false;
     }
   },
-
   //check center
   checkCenter : function(){
     if(gameLogic.combos[1][1] === 0){
@@ -183,6 +182,7 @@ const aiPlayer = {
       return false;
     }
   },
+  //the play cascade
   playCascade : function(){
 
     if(this.checkSpec() === "C4"){
@@ -309,6 +309,5 @@ const aiPlayer = {
       gameLogic.playTurn(8);
       return "S4";
     }
-
   },
 };
