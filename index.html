@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <script src="js/jquery.js" charset="utf-8"></script>
+    <script src="js/main.js" charset="utf-8"></script>
+    <script src="js/gamelogic.js" charset="utf-8"></script>
+    <script src="js/ai.js" charset="utf-8"></script>
+    <script src="js/odometer.js" charset="utf-8"></script>
+    <meta charset="utf-8">
+    <title> Tic-Tac-Toe </title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/odometer-theme-train-station.css">
+  </head>
+  <body>
+    <h1> Tic-Tac-Toe </h1>
+    <h2 id="inst"></h2>
+    <table class="center">
+      <tr>
+        <td class="border red">0</td>
+        <td class="border red">1</td>
+        <td class="border red">2</td>
+        <td class="border red">6</td>
+      </tr>
+      <tr>
+        <td class="border grey">
+          <div class="white" id="wh1"><div class="tease" id="t1"></div><img class="os xo" id="o1" src="img/o.png" alt="O"><img class="xs xo" id="x1" src="img/x.png" alt="X"></div>
+          <div class="hide">0-0,3-0,7-0<br><strong>1</strong></div></td>
+        <td class="border grey">
+          <div class="white" id="wh2"><div class="tease" id="t2"></div><img class="os xo" id="o2" src="img/o.png" alt="O"><img class="xs xo" id="x2" src="img/x.png" alt="X"></div>
+          <div class="hide">1-0,3-1<br><strong>2</strong></div></td>
+        <td class="border grey">
+          <div class="white" id="wh3"><div class="tease" id="t3"></div><img class="os xo" id="o3" src="img/o.png" alt="O"><img class="xs xo" id="x3" src="img/x.png" alt="X"></div>
+          <div class="hide">2-0,3-2,6-2<br><strong>3</strong></div></td>
+        <td class="border red">3</td>
+      </tr>
+      <tr>
+        <td class="border grey">
+          <div class="white" id="wh4"><div class="tease" id="t4"></div><img class="os xo" id="o4" src="img/o.png" alt="O"><img class="xs xo" id="x4" src="img/x.png" alt="X"></div>
+          <div class="hide">0-1,4-0<br><strong>4</strong></div></td>
+        <td class="border grey">
+          <div class="white" id="wh5"><div class="tease" id="t5"></div><img class="os xo" id="o5" src="img/o.png" alt="O"><img class="xs xo" id="x5" src="img/x.png" alt="X"></div>
+          <div class="hide">1-1,4-1,6-1,7-1<br><strong>5</strong></div></td>
+        <td class="border grey">
+          <div class="white" id="wh6"><div class="tease" id="t6"></div><img class="os xo" id="o6" src="img/o.png" alt="O"><img class="xs xo" id="x6" src="img/x.png" alt="X"></div>
+          <div class="hide">2-1,4-2<br><strong>6</strong></div></td>
+        <td class="border red">4</td>
+      </tr>
+      <tr>
+        <td class="border grey">
+          <div class="white" id="wh7"><div class="tease" id="t7"></div><img class="os xo" id="o7" src="img/o.png" alt="O"><img class="xs xo" id="x7" src="img/x.png" alt="X"></div>
+          <div class="hide">0-2,5-0,6-0<br><strong>7</strong></div></td>
+        <td class="border grey">
+          <div class="white" id="wh8"><div class="tease" id="t8"></div><img class="os xo" id="o8" src="img/o.png" alt="O"><img class="xs xo" id="x8" src="img/x.png" alt="X"></div>
+          <div class="hide">1-2,5-1<br><strong>8</strong></div></td>
+        <td class="border grey">
+          <div class="white" id="wh9"><div class="tease" id="t9"></div><img class="os xo" id="o9" src="img/o.png" alt="O"><img class="xs xo" id="x9" src="img/x.png" alt="X"></div>
+          <div class="hide">2-2,5-2,7-2<br><strong>9</strong></div></td>
+        <td class="border red">5</td>
+      </tr>
+      <tr>
+        <td class="border red">-</td>
+        <td class="border red">-</td>
+        <td class="border red">-</td>
+        <td class="border red">7</td>
+      </tr>
+    </table>
+    <div class="center">
+    <table class="center">
+      <tr>
+        <td><strong>X wins:</strong></td>
+        <td><span id="X" class="odometer">0</span></td>
+      </tr>
+      <tr>
+        <td><strong>O wins:</strong></td>
+        <td><span id="O" class="odometer">0</span></td>
+      </tr>
+      <tr>
+        <td><strong>Draws:</strong></td>
+        <td><span id="draw" class="odometer">0</span></td>
+      </tr>
+    </table>
+      <button type="button" name="button" id="recount">Reset Counter</button>
+    </div>
+  </body>
+</html>
