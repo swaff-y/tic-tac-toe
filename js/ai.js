@@ -1,26 +1,30 @@
 console.log('ai working');
 const aiPlayer = {
   checkSpec : function(){
-    if(gameLogic.combos[0][0] === 1 && gameLogic.combos[2][0] === 1){
-      return "S1";
-    }else if(gameLogic.combos[2][0] === 1 && gameLogic.combos[2][2] === 1){
-      return "S3";
-    }else if(gameLogic.combos[2][2] === 1 && gameLogic.combos[0][2] === 1){
-      return "S4"
-    }else if(gameLogic.combos[0][0] === 1 && gameLogic.combos[0][2] === 1){
-      return "S2"
-    }else if(gameLogic.combos[0][0] === 1 && gameLogic.combos[2][2] === 0){
-      if(gameLogic.combos[2][0] !== 1)
-      {return "C4";}
-    }else if(gameLogic.combos[2][0] === 1 && gameLogic.combos[0][2] === 0){
-      if(gameLogic.combos[2][2] !== 1)
-      {return "C3";}
-    }else if(gameLogic.combos[0][2] === 1 && gameLogic.combos[2][0] === 0){
-      if(gameLogic.combos[0][1] !== 1)
-      {return "C2";}
-    }else if(gameLogic.combos[2][2] === 1 && gameLogic.combos[0][0] === 0){
-      if(gameLogic.combos[2][0] !== 1)
-      {return "C1";}
+    if(gameLogic.pickArray.length <= 2){
+      if(gameLogic.combos[0][0] === 1 && gameLogic.combos[2][0] === 1){
+        return "S1";
+      }else if(gameLogic.combos[2][0] === 1 && gameLogic.combos[2][2] === 1){
+        return "S3";
+      }else if(gameLogic.combos[2][2] === 1 && gameLogic.combos[0][2] === 1){
+        return "S4"
+      }else if(gameLogic.combos[0][0] === 1 && gameLogic.combos[0][2] === 1){
+        return "S2"
+      }else if(gameLogic.combos[0][0] === 1 && gameLogic.combos[2][2] === 0){
+        if(gameLogic.combos[2][0] !== 1)
+        {return "C4";}
+      }else if(gameLogic.combos[2][0] === 1 && gameLogic.combos[0][2] === 0){
+        if(gameLogic.combos[2][2] !== 1)
+        {return "C3";}
+      }else if(gameLogic.combos[0][2] === 1 && gameLogic.combos[2][0] === 0){
+        if(gameLogic.combos[0][1] !== 1)
+        {return "C2";}
+      }else if(gameLogic.combos[2][2] === 1 && gameLogic.combos[0][0] === 0){
+        if(gameLogic.combos[2][0] !== 1)
+        {return "C1";}
+      }else{
+        return false;
+      }
     }else{
       return false;
     }
