@@ -2,11 +2,11 @@
 
 This is a project to create a tic-tac-toe game that allows you to see if you can beat the computer.
 
-## Link (to the live site)
+## Link
 
 https://swaff-y.github.io/tic-tac-toe/
 
-## How it was built (Or you can call this Technologies Used)
+## How it was built
 
 I used HTML, CSS, JavaScript, odometer.js and jQuery to build this game.
 
@@ -17,7 +17,7 @@ There is only one known move to beat the computer! This is so that I can display
 The game will track the number of games both you and the CPU has won. The board resets automatically after 1,5 sec. I added a reset button to clear the score board.
 
 ## Known Bugs
-
+Best played on a desktop with a mouse. Does not play as well on a mobile device.
 
 
 ## Future feature / Wishlist
